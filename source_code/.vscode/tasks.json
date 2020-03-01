@@ -1,0 +1,237 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+        {
+            "label": "test clean",
+            "type": "shell",
+            "command": "make",
+            // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+            "options": {
+                "cwd": "${workspaceRoot}/tests/build/build"
+            },
+            // start the build without prompting for task selection, use "group": "build" otherwise
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            // arg passing example: in this case is executed make QUIET=0
+            "args": ["so_fresh_and_so_clean"],
+            // Use the standard less compilation problem matcher.
+            "problemMatcher": {
+              "owner": "cpp",
+              "fileLocation": ["absolute"],
+              "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+              }
+            }
+          },
+          {
+            "label": "test cmake",
+            "type": "shell",
+            "command": "cmake",
+            // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+            "options": {
+                "cwd": "${workspaceRoot}/tests/build/build"
+            },
+            // start the build without prompting for task selection, use "group": "build" otherwise
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            // arg passing example: in this case is executed make QUIET=0
+            "args": ["../"],
+            // Use the standard less compilation problem matcher.
+            "problemMatcher": {
+              "owner": "cpp",
+              "fileLocation": ["absolute"],
+              "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+              }
+            }
+          },
+          {
+            "label": "test make",
+            "type": "shell",
+            "command": "make",
+            // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+            "options": {
+                "cwd": "${workspaceRoot}/tests/build/build"
+            },
+            // start the build without prompting for task selection, use "group": "build" otherwise
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            // arg passing example: in this case is executed make QUIET=0
+            "args": [""],
+            // Use the standard less compilation problem matcher.
+            "problemMatcher": {
+              "owner": "cpp",
+              "fileLocation": ["absolute"],
+              "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+              }
+            }
+          },
+          {
+            "label": "make",
+            "type": "shell",
+            "command": "make",
+            // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+            "options": {
+                "cwd": "${workspaceRoot}/build/build"
+            },
+            // start the build without prompting for task selection, use "group": "build" otherwise
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            // arg passing example: in this case is executed make QUIET=0
+            "args": [""],
+            // Use the standard less compilation problem matcher.
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["absolute"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+          },
+          {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+            "options": {
+                "cwd": "${workspaceRoot}/build/build"
+            },
+            // start the build without prompting for task selection, use "group": "build" otherwise
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            // arg passing example: in this case is executed make QUIET=0
+            "args": ["so_fresh_and_so_clean"],
+            // Use the standard less compilation problem matcher.
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["absolute"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }          
+          },
+          {
+            "label": "cmake",
+            "type": "shell",
+            "command": "cmake",
+            // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+            "options": {
+                "cwd": "${workspaceRoot}/build/build"
+            },
+            // start the build without prompting for task selection, use "group": "build" otherwise
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            // arg passing example: in this case is executed make QUIET=0
+            "args": ["../", "-DCMAKE_TOOLCHAIN_FILE=cross_compile.cmake"],
+            // Use the standard less compilation problem matcher.
+            "problemMatcher": {
+              "owner": "cpp",
+              "fileLocation": ["absolute"],
+              "pattern": {
+                  "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "severity": 4,
+                  "message": 5
+              }
+            }          
+          },
+      {
+          "label": "prog",
+          "type": "shell",
+          "command": "make",
+          // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+          "options": {
+              "cwd": "${workspaceRoot}/build/build"
+          },
+          // start the build without prompting for task selection, use "group": "build" otherwise
+          "group": "build",
+          "presentation": {
+              "echo": true,
+              "reveal": "always",
+              "focus": false,
+              "panel": "shared"
+          },
+          // arg passing example: in this case is executed make QUIET=0
+          "args": ["prog"],
+          // Use the standard less compilation problem matcher.
+          "problemMatcher": {
+             "owner": "cpp",
+             "fileLocation": ["absolute"],
+             "pattern": {
+                 "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                 "file": 1,
+                 "line": 2,
+                 "column": 3,
+                 "severity": 4,
+                 "message": 5
+             }
+          }          
+      }
+  ]
+}

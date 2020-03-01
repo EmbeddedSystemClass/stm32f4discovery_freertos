@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "app_timer.h": "c",
+    "atomic": "cpp"
+  },
+  "C_Cpp.loggingLevel": "Debug",
+  "workbench.editor.enablePreview": false,
+  "C_Cpp.intelliSenseEngineFallback": "Disabled",
+  "C_Cpp.intelliSenseEngine": "Default"
+}

@@ -1,0 +1,4 @@
+source_code/build/build/
+source_code/.clangd/
+source_code/tests/build/build/
+source_code/compile_commands.json

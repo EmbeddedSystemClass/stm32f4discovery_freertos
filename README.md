@@ -1,0 +1,1 @@
+Just a quick framework to mess around with FreeRTOS, C++, and the FreeRTOS CLI on the STM32F4 Discovery board. Instead of using the STM HAL, libopencm3 is used for low-level communication. I also use their CDC ACM driver to use the full-speed USB as a serial communication device.

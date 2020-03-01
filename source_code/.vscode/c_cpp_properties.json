@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/inc",
+                "${workspaceFolder}/modules/**",
+                "${workspaceFolder}/modules",
+                "${workspaceFolder}/bluetooth",
+                "${workspaceFolder}/tests/inc"
+            ],
+            "defines": [
+                "STM32F4",
+                "ASSERT_ENABLED"
+            ],
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "/opt/gcc-arm-none-eabi-8.3.1/bin/arm-none-eabi-g++",
+            "cppStandard": "c++14",
+            "cStandard": "c99",
+            "compileCommands": "${workspaceFolder}/build/build/compile_commands.json",
+            "configurationProvider": "vector-of-bool.cmake-tools"
+        }
+    ],
+    "version": 4
+}

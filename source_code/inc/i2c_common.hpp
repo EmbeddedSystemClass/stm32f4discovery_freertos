@@ -1,0 +1,86 @@
+
+
+#pragma once
+
+#include "gpio.hpp"
+extern "C" {
+  #include "libopencm3/stm32/i2c.h"
+}
+
+namespace i2c {
+
+enum class Speed {
+  SM_100K = i2c_speed_sm_100k,
+  FM_400K = i2c_speed_fm_400k,
+  FMP_1M  = i2c_speed_fmp_1m,
+};
+
+enum class ClockFreq {
+  FREQ_2MHZ   = I2C_CR2_FREQ_2MHZ,
+  FREQ_3MHZ   = I2C_CR2_FREQ_3MHZ,
+  FREQ_4MHZ   = I2C_CR2_FREQ_4MHZ,
+  FREQ_5MHZ   = I2C_CR2_FREQ_5MHZ,
+  FREQ_6MHZ   = I2C_CR2_FREQ_6MHZ,
+  FREQ_7MHZ   = I2C_CR2_FREQ_7MHZ,
+  FREQ_8MHZ   = I2C_CR2_FREQ_8MHZ,
+  FREQ_9MHZ   = I2C_CR2_FREQ_9MHZ,
+  FREQ_10MHZ  = I2C_CR2_FREQ_10MHZ,
+  FREQ_11MHZ  = I2C_CR2_FREQ_11MHZ,
+  FREQ_12MHZ  = I2C_CR2_FREQ_12MHZ,
+  FREQ_13MHZ  = I2C_CR2_FREQ_13MHZ,
+  FREQ_14MHZ  = I2C_CR2_FREQ_14MHZ,
+  FREQ_15MHZ  = I2C_CR2_FREQ_15MHZ,
+  FREQ_16MHZ  = I2C_CR2_FREQ_16MHZ,
+  FREQ_17MHZ  = I2C_CR2_FREQ_17MHZ,
+  FREQ_18MHZ  = I2C_CR2_FREQ_18MHZ,
+  FREQ_19MHZ  = I2C_CR2_FREQ_19MHZ,
+  FREQ_20MHZ  = I2C_CR2_FREQ_20MHZ,
+  FREQ_21MHZ  = I2C_CR2_FREQ_21MHZ,
+  FREQ_22MHZ  = I2C_CR2_FREQ_22MHZ,
+  FREQ_23MHZ  = I2C_CR2_FREQ_23MHZ,
+  FREQ_24MHZ  = I2C_CR2_FREQ_24MHZ,
+  FREQ_25MHZ  = I2C_CR2_FREQ_25MHZ,
+  FREQ_26MHZ  = I2C_CR2_FREQ_26MHZ,
+  FREQ_27MHZ  = I2C_CR2_FREQ_27MHZ,
+  FREQ_28MHZ  = I2C_CR2_FREQ_28MHZ,
+  FREQ_29MHZ  = I2C_CR2_FREQ_29MHZ,
+  FREQ_30MHZ  = I2C_CR2_FREQ_30MHZ,
+  FREQ_31MHZ  = I2C_CR2_FREQ_31MHZ,
+  FREQ_32MHZ  = I2C_CR2_FREQ_32MHZ,
+  FREQ_33MHZ  = I2C_CR2_FREQ_33MHZ,
+  FREQ_34MHZ  = I2C_CR2_FREQ_34MHZ,
+  FREQ_35MHZ  = I2C_CR2_FREQ_35MHZ,
+  FREQ_36MHZ  = I2C_CR2_FREQ_36MHZ,
+  FREQ_37MHZ  = I2C_CR2_FREQ_37MHZ,
+  FREQ_38MHZ  = I2C_CR2_FREQ_38MHZ,
+  FREQ_39MHZ  = I2C_CR2_FREQ_39MHZ,
+  FREQ_40MHZ  = I2C_CR2_FREQ_40MHZ,
+  FREQ_41MHZ  = I2C_CR2_FREQ_41MHZ,
+  FREQ_42MHZ  = I2C_CR2_FREQ_42MHZ,
+};
+
+enum class RetCode {
+  SUCCESS,
+  BAD_STATE,
+  INVALID_PARAMS,
+  BUSY
+};
+
+typedef struct {
+  uint8_t* rx_buffer;
+  uint8_t* tx_buffer;
+  uint8_t num_bytes;
+  uint8_t address;
+} xfer_data_t;
+
+typedef struct {
+  gpio::pin_t scl;
+  gpio::pin_t sda;
+} pins_t;
+
+typedef struct {
+  Speed speed;
+  ClockFreq clock_freq;
+} config_t;
+
+};  // namespace i2c
